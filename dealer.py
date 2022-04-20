@@ -20,3 +20,12 @@ class Dealer():
 
   def cartaDealer(self):
     self.mao.append(self.baralho.pushCarta())
+
+  def terminarGame(self, game : list):
+    winner = [0,'']
+    for i in game:
+      if i.somarMao() > winner[0]:
+        winner[0] = i.somarMao()
+        winner[1] = i
+    
+    return winner[1]

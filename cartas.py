@@ -45,5 +45,8 @@ class Mao():
   def somarMao(self):
     total = 0
     for i in self.mao:
-      total += self.mao[i][1]
+      if i[1] == 1:
+        total += 11
+      else:
+        total += i[1]
     return total
