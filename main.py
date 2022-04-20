@@ -1,8 +1,15 @@
-dic = {1 : 'Ás de ', 11 : 'Valete de ', 12 : 'Dama de ', 13 : 'Rei de '}
-frase = ''
-for i in [1, 12 , 13]:
-  if i == 1 or i == 11 or i == 12 or i == 13:
-    # card = i.get_carta()
-    frase += str(dic.get(i) + str(i))
+from dealer import Dealer
+import cartas
 
-print(frase)
+print('Bem vindo ao blackjack')
+participantes = int(input('Quantos jogadores vao participar? \n'))
+players = []
+dealermesa = Dealer()
+
+dealermesa.initdealer()
+for i in range(participantes):
+  players.append(dealermesa.iniciarGame())
+
+for i in players:
+  for j in i:
+    print(j)

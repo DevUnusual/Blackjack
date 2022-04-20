@@ -4,6 +4,9 @@ class Carta():
   def __init__(self, naipe, valor):
     self.naipe = naipe
     self.valor = valor
+
+  def __str__(self):
+    return f"{self.valor} {self.naipe}"
   
   def get_carta(self):
     return (self.naipe, self.valor)
@@ -16,7 +19,7 @@ class Baralho():
         self.baralho.append(Carta(i, j))
 
   def pushCarta(self):
-    choseOne = self.baralho.pop(randint(0, len(self.baralho)))
+    choseOne = self.baralho.pop(randint(0, (len(self.baralho)-1)))
     return choseOne 
   
   def devolverCarta(self, carta):
@@ -38,9 +41,9 @@ class Mao():
         frase += str(str(card[1]) + card[0])
     return frase
   
-  def criarMao(self, baralho : Baralho):
-    for i in range(5):
-      self.mao = baralho.pushCarta()
+  #def criarMao(self, baralho : Baralho):
+  #  for i in range(5):
+  #    self.mao = baralho.pushCarta()
   
   def somarMao(self):
     total = 0
