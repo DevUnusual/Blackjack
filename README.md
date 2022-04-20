@@ -1,2 +1,3 @@
 # Blackjack
-Criar um jogo de blackjack, desafio do curso de python.
+## Objetivo:
+### Criar um jogo de blackjack, por meio de texto basico para testar habilidade.
