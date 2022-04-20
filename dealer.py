@@ -4,6 +4,13 @@ class Dealer():
   def __init__(self):
     self.mao = []
     self.baralho = cartas.Baralho()
+  
+  def __str__(self):
+    ret = ''
+    for i in self.mao:
+      ret += str(str(i) + ' \n')
+
+    return ret
 
   def initdealer(self):
     self.mao.append(self.baralho.pushCarta())
@@ -21,11 +28,5 @@ class Dealer():
   def cartaDealer(self):
     self.mao.append(self.baralho.pushCarta())
 
-  def terminarGame(self, game : list):
-    winner = [0,'']
-    for i in game:
-      if i.somarMao() > winner[0]:
-        winner[0] = i.somarMao()
-        winner[1] = i
-    
-    return winner[1]
+  def getCards(self):
+    return self.mao

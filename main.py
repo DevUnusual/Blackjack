@@ -1,15 +1,25 @@
 from dealer import Dealer
-import cartas
 
 print('Bem vindo ao blackjack')
-participantes = int(input('Quantos jogadores vao participar? \n'))
-players = []
+player = []
 dealermesa = Dealer()
 
 dealermesa.initdealer()
-for i in range(participantes):
-  players.append(dealermesa.iniciarGame())
+player = dealermesa.iniciarGame()
 
-for i in players:
-  for j in i:
-    print(j)
+print('cartas da mesa:')
+print(dealermesa)
+
+print('Suas cartas:')
+for i in player:
+  print(i)
+
+print('DECISAO:')
+decision = int(input('1 - MAIS UMA CARTA \n2 - FINALIZAR JOGO'))
+
+if decision == 1:
+  player.append(dealermesa.darCarta())
+elif decision == 2:
+  dealermesa.getCards().somarMao
+
+

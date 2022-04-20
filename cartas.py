@@ -6,7 +6,13 @@ class Carta():
     self.valor = valor
 
   def __str__(self):
-    return f"{self.valor} {self.naipe}"
+    dic = {1 : 'Ás de ', 11 : 'Valete de ', 12 : 'Dama de ', 13 : 'Rei de '}
+    frase = ''
+    if self.valor == 1 or self.valor == 11 or self.valor == 12 or self.valor == 13:
+      frase += str(dic.get(self.valor) + self.naipe)
+    else:
+      frase += str(str(self.valor) +' de '+ self.naipe)
+    return frase
   
   def get_carta(self):
     return (self.naipe, self.valor)
@@ -27,7 +33,7 @@ class Baralho():
 
 class Mao():
   def __init__(self):
-    self.mao = []
+    self.mao = [Carta]
 
   def __str__(self):
     dic = {1 : 'Ás de ', 11 : 'Valete de ', 12 : 'Dama de ', 13 : 'Rei de '}
@@ -41,9 +47,8 @@ class Mao():
         frase += str(str(card[1]) + card[0])
     return frase
   
-  #def criarMao(self, baralho : Baralho):
-  #  for i in range(5):
-  #    self.mao = baralho.pushCarta()
+  def pegarCarta(self, card : Carta):
+    self.mao.append(card)
   
   def somarMao(self):
     total = 0
