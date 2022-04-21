@@ -30,3 +30,15 @@ class Dealer():
 
   def getCards(self):
     return self.mao
+
+  def getTotal(self):
+    total = 0
+    for i in self.mao:
+      x = i.get_carta()[1]
+    if x == 11 or x == 12 or x == 13:
+      total += 10
+    elif x == 1:
+      total += 11
+    else:
+      total += x
+    return total

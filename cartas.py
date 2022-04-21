@@ -50,11 +50,4 @@ class Mao():
   def pegarCarta(self, card : Carta):
     self.mao.append(card)
   
-  def somarMao(self):
-    total = 0
-    for i in self.mao:
-      if i[1] == 1:
-        total += 11
-      else:
-        total += i[1]
-    return total
+  
