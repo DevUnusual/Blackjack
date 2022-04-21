@@ -38,11 +38,14 @@ while(True):
     print('Suas cartas:')
     for i in player:
       print(i)
+    print(f'\nPlacar Atual \nMesa:{somarTotal(dealermesa.getCards())} | player:{somarTotal(player)}\n')
 
   elif decision == 2:
-    dealermesa.cartaDealer()
-
-    print('mesa puxa uma carta ficando com:')
+    if somarTotal(dealermesa.getCards()) <= 20:
+      dealermesa.cartaDealer()
+      print('mesa puxa uma carta ficando com:')
+    else:
+      print('cartas da mesa:')
     print(dealermesa)
     print('Suas cartas:')
     for i in player:
@@ -55,6 +58,10 @@ while(True):
     if dealerPoint >= playerPoint and dealerPoint <=21:
       print('A mesa ganhou.')
     elif dealerPoint <= playerPoint and playerPoint <= 21:
+      print('Parabens voce ganhou.')
+    elif dealerPoint <= playerPoint and playerPoint > 21:
+      print('A mesa ganhou.')
+    elif dealerPoint >= playerPoint and dealerPoint > 21:
       print('Parabens voce ganhou.')
     elif dealerPoint > 21 and playerPoint > 21 :
       print('A mesa ganhou.')
