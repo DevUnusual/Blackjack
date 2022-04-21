@@ -29,27 +29,35 @@ for i in player:
 
 print(f'\nPlacar \nMesa:{somarTotal(dealermesa.getCards())} | player:{somarTotal(player)}\n')
 
-print('DECISAO:')
-decision = int(input('1 - MAIS UMA CARTA \n2 - FINALIZAR JOGO\n->'))
+while(True):
+  print('DECISAO:')
+  decision = int(input('1 - MAIS UMA CARTA? \n2 - FINALIZAR JOGO\n->'))
 
-if decision == 1:
-  player.append(dealermesa.darCarta())
-elif decision == 2:
-  dealermesa.cartaDealer()
-  
-  print('mesa puxa uma carta ficando com:')
-  print(dealermesa)
-  print('Suas cartas:')
-  for i in player:
-    print(i)
-  
-  dealerPoint = somarTotal(dealermesa.getCards())
-  playerPoint = somarTotal(player)
-  
-  print(f'dealer: {dealerPoint} | player: {playerPoint}')
-  if dealerPoint >= playerPoint:
-    print('A mesa ganhou.')
-  else:
-    print('Parabens voce ganhou.')
+  if decision == 1:
+    player.append(dealermesa.darCarta())
+    print('Suas cartas:')
+    for i in player:
+      print(i)
+
+  elif decision == 2:
+    dealermesa.cartaDealer()
+
+    print('mesa puxa uma carta ficando com:')
+    print(dealermesa)
+    print('Suas cartas:')
+    for i in player:
+      print(i)
+
+    dealerPoint = somarTotal(dealermesa.getCards())
+    playerPoint = somarTotal(player)
+
+    print(f'dealer: {dealerPoint} | player: {playerPoint}')
+    if dealerPoint >= playerPoint and dealerPoint <=21:
+      print('A mesa ganhou.')
+    elif dealerPoint <= playerPoint and playerPoint <= 21:
+      print('Parabens voce ganhou.')
+    elif dealerPoint > 21 and playerPoint > 21 :
+      print('A mesa ganhou.')
+    break
 
 
